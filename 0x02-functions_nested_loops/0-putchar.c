@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "main.h"
 
 /**
  * main - Entry point or main block
@@ -10,8 +11,6 @@
 
 int main(void)
 {
-	int n = 1;
-
 	putchar('_');
 	putchar('p');
 	putchar('u');
