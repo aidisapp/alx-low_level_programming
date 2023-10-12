@@ -1,1 +1,2 @@
-This is my readme file, it is actually describing all I'll be doing for this project
+#0x03. C - Debugging
+This is my Readme file to describe my quest in learning how to debug for the first time
