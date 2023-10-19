@@ -7,12 +7,12 @@
  * Description: reverses the content of an array
  *
  * of integers.
- * 
+ *
  * @a: array.
  *
  * @n: number of elements of the array.
  *
- * Return: Always o at success.
+ * Return: Always 0 at success.
  */
 
 void reverse_array(int *a, int n)
