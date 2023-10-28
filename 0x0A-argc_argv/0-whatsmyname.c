@@ -10,7 +10,7 @@
  *
  * @argc: argument count
  *
- * @arcv: argument vector
+ * @argv: argument vector
  *
  * Return: it will certainly be 0 if passed
  */
