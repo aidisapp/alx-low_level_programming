@@ -27,22 +27,19 @@ char *_strdup(char *str)
 	duplicate = malloc((length + 1) * sizeof(char));
 
 	if (str == NULL)
-	{
 		return (NULL);
-	}
 
 	for (u = 0; str[u]; u++)
 		length++;
 
 	if (duplicate == NULL)
-	{
 		return (NULL);
-	}
 
 	for (u = 0; str[u]; u++)
 	{
 		duplicate[u] = str[u];
 	}
+	duplicate[length] = '\0';
 
 	return (duplicate);
 }
