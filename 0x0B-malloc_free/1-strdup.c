@@ -41,7 +41,7 @@ char *_strdup(char *str)
 		return (NULL);
 	}
 
-	for (u = 0; u < length; u++)
+	for (u = 0; str[u]; u++)
 	{
 		duplicate[u] = str[u];
 	}
