@@ -26,15 +26,13 @@ char *_strdup(char *str)
 
 	duplicate = malloc((length + 1) * sizeof(char));
 
-	while (str[length] != '\0')
-	{
-		length++;
-	}
-
 	if (str == NULL)
 	{
 		return (NULL);
 	}
+
+	for (u = 0; str[u]; u++)
+		length++;
 
 	if (duplicate == NULL)
 	{
