@@ -20,26 +20,22 @@
 
 char *_strdup(char *str)
 {
-	int length = 0;
-	int u;
-	char *duplicate;
-
-	duplicate = malloc((length + 1) * sizeof(char));
+	char *duplicateStr;
+	unsigned int a;
+	unsigned int b;
 
 	if (str == NULL)
 		return (NULL);
 
-	for (u = 0; str[u]; u++)
-		length++;
+	for (a = 0; str[a] != '\0'; a++)
 
-	if (duplicate == NULL)
+	duplicateStr = (char *)malloc(sizeof(char) * (a + 1));
+
+	if (duplicateStr == NULL)
 		return (NULL);
 
-	for (u = 0; str[u]; u++)
-	{
-		duplicate[u] = str[u];
-	}
-	duplicate[length] = '\0';
+	for (b = 0; b <= a; b++)
+		duplicateStr[b] = str[b];
 
-	return (duplicate);
+	return (duplicateStr);
 }
