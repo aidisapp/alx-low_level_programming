@@ -1,61 +1,86 @@
-#include <stdio.h>
 #include <stdlib.h>
+#include "main.h"
+#include <stdio.h>
 
 /**
- * is_valid_number - this is the main block
+ * str_to_int - this is the main block
  *
- * Description: this function check to see if strings are valid nos
+ * Description: this function changes the string to integer
  *
- * @str: this is the string to be considered
+ * @str: the string to be changed
  *
- * Return: Zero or 1 as the case may be
+ * Return: would always be the result.
  */
 
-int is_valid_number(const char *str)
+int str_to_int(char *str)
 {
-	while (*str)
+	int result = 0;
+	int i;
+
+	for (i = 0; str[i]; i++)
 	{
-		if (*str < '0' || *str > '9')
+		if (str[i] < '0' || str[i] > '9')
 		{
-			return (0);  /* Not a digit */
+			return (-1);
 		}
-		str++;
+		result = result * 10 + (str[i] - '0');
 	}
-	return (1);
+	return (result);
 }
 
 /**
  * main - this is the main point or the Entry point
- * 
- * Description: this function prints buffer in hexa
  *
- * @buffer: the address of memory to print
+ * Description: this function processes the arguments, validates then
  *
- * @size: the size of the memory to print
+ * validates them and performs integer multiplciation
  *
- * Return: zero as the case may be
+ * @argc: thsi is the argument count
+ *
+ * @argv: this is the array of character pointers
+ *
+ * Return: will be zero when successful
  */
 
 int main(int argc, char *argv[])
 {
-	if (argc != 3)
+	int result;
+
+	if (argc != 3 || str_to_int(argv[1]) == -1 || str_to_int(argv[2]) == -1)
 	{
-		printf("Error\n");
-		return (98);
+		_putchar('E');
+		_putchar('r');
+		_putchar('r');
+		_putchar('o');
+		_putchar('r');
+		_putchar('\n');
+		exit(98);
 	}
 
-	char *num1 = argv[1];
-	char *num2 = argv[2];
+	result = str_to_int(argv[1]) * str_to_int(argv[2]);
 
-	if (!is_valid_number(num1) || !is_valid_number(num2)
+	if (result == 0)
 	{
-		printf("Error\n");
-		return (98);
+		_putchar('0');
+	}
+	else
+	{
+	char result_str[20];
+		int i = 0;
+		int j;
+
+		while (result > 0)
+		{
+			result_str[i++] = (result % 10) + '0';
+			result /= 10;
+		}
+
+		for (j = i - 1; j >= 0; j--)
+		{
+			_putchar(result_str[j]);
+		}
 	}
 
-	unsigned long long result = strtoull(num1, NULL, 10) * strtoull(num2, NULL, 10);
-
-	printf("%llu\n", result);
-
+	_putchar('\n');
 	return (0);
 }
