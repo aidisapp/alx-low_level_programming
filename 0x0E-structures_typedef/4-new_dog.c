@@ -1,20 +1,20 @@
 #include <stdlib.h>
 #include "dog.h"
 
-int _strLen(char *str);
-void fillMem(char *str, int strLen, char *dest);
-
 /**
- * new_dog - Creates a new dog
+ * new_dog - this is the Entry point
  *
- * @name: Name of dog
+ * Description: this actually creates a new dog
  *
- * @age: Age of dog
+ * @name: this is the name of dog
  *
- * @owner: Owner of dog
+ * @age: this is the age of dog
  *
- * Return: Pointer to the newly created dog (SUCCESS) or
- * NULL if insufficient memory was available (FAILURE)
+ * @owner: this represents the owner of dog
+ *
+ * Return: would store a copy of name and owner if it's
+ *
+ * successful or NULL if it fails
  */
 
 dog_t *new_dog(char *name, float age, char *owner)
@@ -56,11 +56,13 @@ dog_t *new_dog(char *name, float age, char *owner)
 }
 
 /**
- * _strLen - Get length of a string
+ * _strLen - this is the main point
  *
- * @str: A string
+ * Description: this function gets the length of a string
  *
- * Return: Length of string
+ * @str: this is the string
+ *
+ * Return: Always the length of string
  */
 
 int _strLen(char *str)
@@ -74,21 +76,25 @@ int _strLen(char *str)
 }
 
 /**
- * fillMem - Copy string literal to allocated memory
+ * fillMem - this is another main point
  *
- * @str: String literal
+ * Description: this particular function Copies literal string
  *
- * @strLen: @str length
+ * to allocated memory
  *
- * @dest: The allocated memory
+ * @str: this is the literal string
+ *
+ * @strLen: this poses as the string length
+ *
+ * @dest: this is the memory allocatedy
  */
 
 void fillMem(char *str, int strLen, char *dest)
 {
-	int i;
+	int a;
 
-	for (i = 0; i < strLen; i++)
-		dest[i] = str[i];
+	for (a = 0; a < strLen; a++)
+		dest[a] = str[a];
 
-	dest[i] = '\0';
+	dest[a] = '\0';
 }
