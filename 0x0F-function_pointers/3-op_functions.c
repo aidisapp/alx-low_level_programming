@@ -1,6 +1,6 @@
 #include "3-calc.h"
 #include <stdio.h>
-#include <stdlib>
+#include <stdlib.h>
 
 /**
  * op_add - this function returns the sum of a and b

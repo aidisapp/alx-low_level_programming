@@ -20,8 +20,7 @@ int main(int argc, char *argv[])
 {
 	int data1;
 	int data2;
-	int finalResult;
-	char opr;
+	char *opr;
 	int (*oprn_)(int, int);
 
 
@@ -34,17 +33,17 @@ int main(int argc, char *argv[])
 	data1 = atoi(argv[1]);
 	data2 = atoi(argv[3]);
 
-	opr = *argv[2];
+	opr = argv[2];
 
 	oprn_ = get_op_func(opr);
 
-	if (operation == NULL)
+	if (oprn_ == NULL)
 	{
 		printf("Error\n");
 		exit(99);
 	}
 
-	if ((opr == '/' || opr == '%') && data2 == 0)
+	if ((*opr == '/' || *opr == '%') && data2 == 0)
 	{
 		printf("Error\n");
 		exit(100);
