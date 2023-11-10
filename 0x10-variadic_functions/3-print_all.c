@@ -25,9 +25,7 @@
 void print_all(const char * const format, ...)
 {
 	va_list args_;
-	char *str, ch_;
-	int digit;
-	float dec_;
+	char *str;
 
 	int x = 0, printed = 0;
 
@@ -38,16 +36,13 @@ void print_all(const char * const format, ...)
 		switch (format[x])
 		{
 		case 'c':
-			ch_ = va_arg(args_, int);
-			printf("%c", ch_);
+			printf("%c", va_arg(args_, int));
 			break;
 		case 'i':
-			digit = va_arg(args_, int);
-			printf("%d", digit);
+			printf("%d", va_arg(args_, int));
 			break;
 		case 'f':
-			dec_ = va_arg(args_, double);
-			printf("%f", dec_);
+			printf("%f", va_arg(args_, double));
 			break;
 		case 's':
 			str = va_arg(args_, char *);
@@ -60,7 +55,6 @@ void print_all(const char * const format, ...)
 			printed = 1;
 			break;
 		}
-
 		if (format[x + 1] && !printed)
 			printf(", ");
 
