@@ -10,33 +10,33 @@
 
 void print_binary(unsigned long int n)
 {
-	int r, my_count;
+	int shift;
 
-	int bits;
+	int flag;
 
-	r = 0;
+	shift = sizeof(unsigned long int) * 8 - 1;
 
-	my_count = 0;
+	flag = 0;
 
-	bits = sizeof(unsigned long int) * 8;
-
-	for (r = bits - 1; r >= 0; r--)
+	if (n == 0)
 	{
-		if ((n >> r) & 1)
+		_putchar('0');
+		return;
+	}
+
+	while (shift >= 0)
+	{
+		unsigned long int check = n >> shift;
+
+		if (check & 1)
 		{
-			my_count = r;
-			break;
-		}
-	}
-
-	for (r = my_count; r >= 0; r--)
-	{
-		if ((n >> r) & 1)
 			putchar('1');
-		else
-			putchar('0');
+			flag = 1;
+		}
+		else if (flag == 1)
+		{
+			_putchar('0');
+		}
+		shift--;
 	}
-
-	if (my_count == 0 && (n & 1) == 0)
-		putchar('0');
 }
