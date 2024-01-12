@@ -10,8 +10,8 @@
 
 dlistint_t *insert_dnodeint_at_index(
 	dlistint_t **head, unsigned int idx, int n
-	)
 
+	)
 {
 	unsigned int count;
 	dlistint_t *tmp, *new, *tmp_prev;
@@ -21,30 +21,30 @@ dlistint_t *insert_dnodeint_at_index(
 
 	new = malloc(sizeof(dlistint_t));
 	if (new == NULL)
-        return (NULL);
+		return (NULL);
 
-    new->n = n, new->prev = new->next = NULL;
+	new->n = n, new->prev = new->next = NULL;
 
-    if (idx == 0)
-        return (insert_at_beginning(head, new));
+	if (idx == 0)
+		return (insert_at_beginning(head, new));
 
-    count = 1, tmp = (*head)->next;
+	count = 1, tmp = (*head)->next;
 
-    while (tmp)
-    {
-        if (idx == count)
-            return (insert_in_middle(tmp, new));
+	while (tmp)
+	{
+		if (idx == count)
+			return (insert_in_middle(tmp, new));
 
-        count++;
-        tmp_prev = tmp;
-        tmp = tmp->next;
-    }
+		count++;
+		tmp_prev = tmp;
+		tmp = tmp->next;
+	}
 
-    if (tmp == NULL && count == idx)
-        return (insert_at_end(tmp_prev, new));
+	if (tmp == NULL && count == idx)
+		return (insert_at_end(tmp_prev, new));
 
-    free(new);
-    return (NULL);
+	free(new);
+	return (NULL);
 }
 
 /**
@@ -53,18 +53,19 @@ dlistint_t *insert_dnodeint_at_index(
  * @new: new node to insert
  * Return: new node or null
  **/
+
 dlistint_t *insert_at_beginning(dlistint_t **head, dlistint_t *new)
 {
-    if (*head)
-    {
-        new->next = *head;
-        (*head)->prev = new;
-        *head = new;
-    }
-    else
-        *head = new;
+	if (*head)
+	{
+		new->next = *head;
+		(*head)->prev = new;
+		*head = new;
+	}
+	else
+		*head = new;
 
-    return (new);
+	return (new);
 }
 
 /**
@@ -73,14 +74,15 @@ dlistint_t *insert_at_beginning(dlistint_t **head, dlistint_t *new)
  * @new: new node to insert
  * Return: new node or null
  **/
+
 dlistint_t *insert_in_middle(dlistint_t *tmp, dlistint_t *new)
 {
-    tmp->prev->next = new;
-    new->prev = tmp->prev;
-    new->next = tmp;
-    tmp->prev = new;
+	tmp->prev->next = new;
+	new->prev = tmp->prev;
+	new->next = tmp;
+	tmp->prev = new;
 
-    return (new);
+	return (new);
 }
 
 /**
@@ -89,11 +91,11 @@ dlistint_t *insert_in_middle(dlistint_t *tmp, dlistint_t *new)
  * @new: new node to insert
  * Return: new node or null
  **/
+
 dlistint_t *insert_at_end(dlistint_t *tmp_prev, dlistint_t *new)
 {
-    tmp_prev->next = new;
-    new->prev = tmp_prev;
+	tmp_prev->next = new;
+	new->prev = tmp_prev;
 
-    return (new);
+	return (new);
 }
-
