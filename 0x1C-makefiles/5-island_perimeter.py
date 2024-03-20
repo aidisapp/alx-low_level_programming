@@ -1,31 +1,26 @@
 #!/usr/bin/python3
-"""This module that calculates the perimeter of an island in a grid."""
+"""This is the definition of a function to compute the perimeter of an island."""
 
 
-def num_water_neighbors(grid, i, j):
-    """This function returns the number of water neighbors a cell has in a grid."""
+def calculate_island_perimeter(grid):
+    """
+    This is the function that computes the perimeter of the island based on the provided grid.
 
-    num = 0
+    Args:
+    - grid (list of list of integers): Represents the island grid where:
+        - 0 indicates a water zone
+        - 1 indicates a land zone
 
-    if i <= 0 or not grid[i - 1][j]:
-        num += 1
-    if j <= 0 or not grid[i][j - 1]:
-        num += 1
-    if j >= len(grid[i]) - 1 or not grid[i][j + 1]:
-        num += 1
-    if i >= len(grid) - 1 or not grid[i + 1][j]:
-        num += 1
-
-    return num
-
-
-def island_perimeter(grid):
-    """This returns the perimeter of the island in grid."""
-
+    Returns:
+    - int: The perimeter of the island
+    """
     perimeter = 0
-    for i in range(len(grid)):
-        for j in range(len(grid[i])):
-            if grid[i][j]:
-                perimeter += num_water_neighbors(grid, i, j)
-
+    for row in range(len(grid)):
+        for col in range(len(grid[0])):
+            if grid[row][col] == 1:
+                perimeter += 4
+                if row > 0 and grid[row - 1][col] == 1:
+                    perimeter -= 2
+                if col > 0 and grid[row][col - 1] == 1:
+                    perimeter -= 2
     return perimeter
