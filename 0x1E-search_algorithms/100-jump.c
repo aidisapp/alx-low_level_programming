@@ -12,7 +12,7 @@
  * Return: Index of the target value if found, -1 otherwise.
  */
 
-int search_with_jump(int *arr, size_t arr_size, int target_value)
+int jump_search(int *arr, size_t arr_size, int target_value)
 {
 	int index, m, k, prev;
 
