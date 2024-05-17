@@ -1,4 +1,4 @@
-nclude "search_algos.h"
+#include "search_algos.h"
 
 /**
   * _binary_search - this function searches for a value in a sorted array
